@@ -1,18 +1,10 @@
 pipeline {
     agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Running build'
-                sh './mvnw package'
-                archiveArtifacts artifacts: 'target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar'
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image step"
                 script {
-                    app = docker.build("kolyaalen/task")
+                    app = docker.build("kolyaalen/task_maven")
                 }
             }
         }
