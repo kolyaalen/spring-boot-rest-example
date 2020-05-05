@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Running build'
                 sh 'mvn clean package'
-                archiveArtifacts artifacts: 'target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar'
+                archiveArtifacts artifacts: 'target/spring-boot-rest-example-0.5.0.war'
             }
         }
         stage('Build Docker Image') {
